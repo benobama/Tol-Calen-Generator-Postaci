@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="generator">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="img/sword-icon.png"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <link href='https://fonts.googleapis.com/css?family=Arapey' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/filesaver.js"></script>
+    <title>Generator Postaci Tol Calen</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default nav-heading">
+      <div class="container-fluid">
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/johndeezy/rpg-character-generator">Twórcy oryginalnego kodu</a></li>
+        </ul>
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Row -->
+    <div class="container">
+      <div class="row">
+
+      <!-- Character Lists -->
+        <div class="col-xs-3 animated fadeInLeft">
+
+          <div class="col-xs-12">
+          <h3>Zapisane postacie</h3>
+          <ul id="savedList">
+          </ul>
+
+          <button id="clearSavedCharacters" class="myButton">Wyczyść</button>
+
+          <!-- <button type="button" class="btn" id="clearSavedCharacters">Clear</button> -->
+          <h3>Historia</h3>
+          <ul id="historyList">
+          </ul>
+          <button type="button" class="myButton" id="clearHistory">Wyczyść</button>
+          </div>
+        </div>
+        <!-- End: Character Lists -->
+
+        <!-- Char creation & output -->
+        <div class="col-xs-9">
+          <!-- Character Creation -->
+          <div class="row">
+            <div class="col-xs-12 animated fadeInRight">
+              <h3>Tworzenie postaci</h3><br>
+              <form id="submitCharacter">
+
+                <label for="characterName">Wpisz imię, lub zostaw puste pole by wylosować</label>
+                <input id="characterName" type="text" class="form-control"></input>
+
+                <label for="characterSurname">Wpisz nazwisko, lub zostaw puste pole by wylosować</label>
+                <input id="characterSurname" type="text" class="form-control"></input>
+
+                <label for="gender">Wybierz płeć, bądź pozostaw to losowi</label>
+                <select id='gender' name="gender" class="form-control">
+                  <option value="">Losuj</option>
+                  <option value="Female">Kobieta</option>
+                  <option value="Male">Mężczyzna</option>
+                </select>
+
+
+              <div hidden>
+                <label for="characterAge">Wybierz poziom spokrewnienia</label>
+                <select id='age' name="age" class="form-control">
+                  <option value="">Losowo</option>
+                  <option value="o mieszanej krwi">Mieszaniec</option>
+                  <option value="spokrewnioną">Spokrewniony</option>
+                  <option value="niespokrewnioną">Niespokrewniony</option>
+                </select>
+              </div>
+
+              <div hidden>
+                <label for="characterAtt">Wybierz poziom att</label>
+                <select id='att' name="att" class="form-control">
+                  <option value="">Losowo</option>
+                </select>
+              </div>
+
+              <div hidden>
+                <label for="characterSkills">Wybierz poziom att</label>
+                <select id='skills' name="skills" class="form-control">
+                  <option value="">Losowo</option>
+                </select>
+              </div>
+
+              <div hidden>
+                <label for="characterPros">Wybierz poziom att</label>
+                <select id='pros' name="pros" class="form-control">
+                  <option value="">Losowo</option>
+                </select>
+              </div>
+
+              <div hidden>
+                <label for="characterCons">Wybierz poziom att</label>
+                <select id='cons' name="cons" class="form-control">
+                  <option value="">Losowo</option>
+                </select>
+              </div>
+
+
+                <label for="realm">Wybierz pochodzenie [Pole Obowiązkowe]</label>
+                <select id="realm"  name="realm" class="form-control">
+                  <option value="Glowne Rody Tol Calen">STARE RODY TOL CALEN (Strutmeiserowie, Fuliocci, Wasylewiczowie, McCormikowie Garoo/Druigh, Ligaturowie, Velasquezowie) </option>
+                  <option value="Pomniejsze Rody Tol Calen">MŁODE RODY TOL CALEN (Merkowie, Muethirowie spoza Puszczy, Kozacy)</option>
+                  <option value="Puszcza">PUSZCZA (Aethirowie, Muethirowie z Puszczy)</option>
+                  <option value="Bezmiary">KOLONIE (Kolonialni Velasquezowie, Niewolnicy)</option>
+                  <option value="Hikuni">HIKUNI (Klan Smoka, Klan Ognia)</option>
+                  <option value="Harani">AL SADIJA (Harani, Isfahani)</option>
+                  <option value="Kudlehowie">MORZE TRAW (Kudlehowie Wschodni, Kudlehowie Zachodni, Kudlehowie Pustynni)</option>
+                  <option value="Skolmjar">ARCHIPELAG SKOLMJAR (Różnorakie Ligaturskie Klany)</option>
+                  <option value="Ungwai">UNGWAI (Mieszkający przy Fuliocci, Zniewoleni)</option>
+                  <option value="Gnom">GNOMY </option>
+                  <option value="Parias">PARIASI</option>
+                  <option value="Potomek">POTOMKOWIE INNYCH BOGÓW</option>
+                </select>
+
+
+              <div hidden>
+                <label for="characterAge">Pochodzisz z rodu bądź klanu...</label>
+                <select id='race' name="race" class="form-control">
+                  <option value="">Zaskocz mnie</option>
+                </select>
+              </div>
+
+                <label for="profession">Wpisz profesję, lub zostaw puste pole by wylosować</label>
+                <input id="profession" type="text" class="form-control"></input>
+
+              <button id="submitButton" type="submit" class="myButton">Wyślij</button>
+            </form>
+          </div>
+          </div>
+          <!-- End: Character Creation -->
+
+          <!-- Character Output -->
+          <div class="row animated fadeInUp">
+            <div id='outputImageBackground' class="col-xs-12">
+
+              <h3 id="outputHeader">Twoja wylosowana postać</h3>
+              <p id="characterOutput">
+                Nazywasz się <strong><span id="outputName"></span></strong> <strong><span id="outputSurname"></span></strong>.</strong> Pochodzisz z <strong><span id="outputRace"></span></strong>. Na codzień <strong><span id="outputProfession"></span></strong>.  W przeszłości <strong><span id="outputDescription"></span></strong>, zaś obecnie twym celem jest <strong><span id="outputQuest"></span></strong>.<br><br>Najwyższa Cecha: <strong><span id="outputAtt"></span></strong><br>Najwyższa Umiejętność: <strong><span id="outputSkills"></span></strong><br>Zaleta: <strong><span id="outputPros"></span></strong><br>Klucz: <strong><span id="outputCons"></span></strong>
+              </p>
+              <button id="saveChar" type="text" class="myButton">Zapisz postać</button>
+            </div>
+          </div>
+          <!-- End: Character Output -->
+        </div>
+        <!-- End: Char creation & output -->
+      </div>
+      <!-- End: Row -->
+    </div>
+
+
+  </body>
+</html>
