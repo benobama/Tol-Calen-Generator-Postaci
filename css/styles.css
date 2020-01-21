@@ -24,8 +24,8 @@
 .generator .col-xs-12 {
   background-color: ##65129C;
   margin-bottom: 27px;
-  border: solid 0px #977a9f;
-  border-radius: 0px;
+  border: solid 3px #977a9f;
+  border-radius: 7px;
   box-shadow: 4px 4px 3px #544059, -4px 4px 3px #544059, 2px -2px 3px #544059, -2px -2px 3px #544059;
   padding: 23px;
   padding-top: 0px;
@@ -102,10 +102,10 @@
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf',GradientType=0);
 	background-color:#ededed;
-	-moz-border-radius:0px;
-	-webkit-border-radius:0px;
-	border-radius:0px;
-	border:0px solid #dcdcdc;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
 	color:#777777;
